@@ -1,23 +1,19 @@
 import React from "react";
 import ModalList from "./Modal";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
 
-function Card({ city, key }) {
+function Card({ city }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <View key={key} style={styles.root}>
+    <View style={styles.root}>
       <View style={styles.container}>
         <Text style={styles.title}>{city.name}</Text>
         <Text style={styles.text}>Today</Text>
         <Text style={styles.weatherNum}>
-          {(city.current.temp - 273.15).toFixed(0)}°C
+          {(city.current.temp - 273.15).toFixed(0)}°C 
+          {/* Kelvin To celsius (kelvin - 273.15) */}
         </Text>
         <TouchableOpacity
           onPress={() => setShowModal(true)}
@@ -72,7 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "white",
   },
-  modal: {},
+  
 });
 
 export default Card;
